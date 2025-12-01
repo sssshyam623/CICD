@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 18 }
-      - run: npm ci
+      - run: npm install
       - run: echo "Build done"
 
   test:
@@ -20,7 +20,7 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v4
-      - run: npm ci
+      - run: npm install
       - run: npm test
 
   deploy:
@@ -29,4 +29,3 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: echo "Deploying..."
-
